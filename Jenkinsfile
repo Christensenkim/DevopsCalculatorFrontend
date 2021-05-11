@@ -5,7 +5,7 @@ pipeline {
             steps {
                 parallel(
                     web: {
-                        {
+                        dir {
                             echo "===== OPTIONAL: Will build the website (if needed) ====="
                         }
                     },
@@ -16,7 +16,7 @@ pipeline {
                         }
                     },
                     db: {
-                        {
+                        dir {
                             echo "===== OPTIONAL: Will build the database (if using a state-based approach) ====="
                         }
                     }
