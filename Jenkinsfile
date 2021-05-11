@@ -11,7 +11,7 @@ pipeline {
                     },
                     api: {
                         dir("src/DevopsCalculatorBackend/DevopsCalculator") {
-                            sh "dotnet build src/DevopsCalculatorBackend/DevopsCalculator"
+                            sh "dotnet build src/DevopsCalculatorBackend/DevopsCalculator/DevopsCalculatorBackend.csproj"
                             sh "docker build . -t christensenkim/DevopsCalc"
                         }
                     },
