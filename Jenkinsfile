@@ -8,12 +8,12 @@ pipeline {
                         dir("web") {
                             echo "===== OPTIONAL: Will build the website (if needed) ====="
                         }
-                    }
+                    },
                     api: {
                         dir("api") {
                             echo "===== REQUIRED: Will build the API project ====="
                         }
-                    }
+                    },
                     db: {
                         dir("db") {
                             echo "===== OPTIONAL: Will build the database (if using a state-based approach) ====="
