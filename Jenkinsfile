@@ -5,17 +5,18 @@ pipeline {
             steps {
                 parallel(
                     web: {
-                        dir("web") {
+                        {
                             echo "===== OPTIONAL: Will build the website (if needed) ====="
                         }
                     },
                     api: {
-                        dir("api") {
-                            echo "===== REQUIRED: Will build the API project ====="
+                        dir("src/DevopsCalculatorBackend/DevopsCalculator") {
+                            sh "dotnet build src/DevopsCalculator.sln"
+                            sh "docker build . -t christensenkim/DevopsCalc"
                         }
                     },
                     db: {
-                        dir("db") {
+                        {
                             echo "===== OPTIONAL: Will build the database (if using a state-based approach) ====="
                         }
                     }
