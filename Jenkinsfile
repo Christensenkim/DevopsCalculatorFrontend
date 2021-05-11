@@ -4,18 +4,18 @@ pipeline {
         stage ("Build"){
             steps {
                 parallel(
-                    stage("Build Web") {
-                        steps {
+                    web: {
+                        dir("web") {
                             echo "===== OPTIONAL: Will build the website (if needed) ====="
                         }
                     }
-                    stage("Build API") {
-                        steps {
+                    api: {
+                        dir("api") {
                             echo "===== REQUIRED: Will build the API project ====="
                         }
                     }
-                    stage("Build database") {
-                        steps {
+                    db: {
+                        dir("db") {
                             echo "===== OPTIONAL: Will build the database (if using a state-based approach) ====="
                         }
                     }
